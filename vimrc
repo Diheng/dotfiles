@@ -58,6 +58,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-surround'
 
 
 "Language support

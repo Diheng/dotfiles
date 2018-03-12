@@ -60,6 +60,7 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-surround'
+Plug 'rizzatti/dash.vim'
 
 
 "Language support
@@ -76,10 +77,33 @@ Plug 'hdima/python-syntax'
 Plug 'chrisbra/csv.vim'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'vim-scripts/c.vim'
-
+Plug 'jalvesaq/Nvim-R'
+"Plug 'roxma/nvim-completion-manager'
+"Plug 'gaalcaras/ncm-R'
+"Optional for snippet support
+Plug 'sirver/UltiSnips'
+"Plug 'w0rp/ale'
 
 call plug#end()
 
 "Settings
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
+let R_in_buffer = 0
+let R_applescript = 0
+let R_tmux_split = 1
+" set a minimum source editor width
+let R_min_editor_width = 80
+
+" make sure the console is at the bottom by making it really wide
+let R_rconsole_width = 1000
+
+" show arguments for functions during omnicompletion
+let R_show_args = 1
+
+" Don't expand a dataframe to show columns by default
+let R_objbr_opendf = 0
+
+" Press the space bar to send lines and selection to R console
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine

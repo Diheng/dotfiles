@@ -45,6 +45,7 @@ This function should only modify configuration layer settings."
      helm
      themes-megapack
      lsp
+     (python :variables python-backend 'anaconda)
      markdown
      (ess :variables
           ess-r-backend 'lsp)
@@ -602,6 +603,13 @@ before packages are loaded."
   ;; (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown-mode))
   ;; (add-to-list 'auto-mode-alist '("\\.rmd" . poly-markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.[rR]md\\'" . poly-gfm+r-mode))
+  ;;yasnippet The problem with yas is that TAB is mapped onto too many things
+  ;; in various mode (org, autocompletion, ect.). Also, you can't map it into
+  ;; any single key that could be a character that you can input. So, mapping
+  ;; it to a combination is the most efficient workaround - Ideally a
+  ;; a combination that you do not need to move your hand.
+  (define-key yas-minor-mode-map (kbd "C-;") 'yas-expand)
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
   ;; For org-mode
   (setq org-todo-keywords
         '((sequence "TODO(t)" "In-Progress(i!)" "|" "DONE(d@/!)")))
@@ -618,6 +626,10 @@ before packages are loaded."
            "* %?\n  %i\n  %a\n  - Entered: %T")
           ("w" "Watch Later" entry (file "~/Documents/Org/Reflection/TOWATCH.org")
            "* %?\n  %u\n  %i\n  %a")))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)
+     (R . t)))
   )
 
 

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: titler
+# key: tt
+# --
+
+#+title: ${1:title}
+#+author: ${2:author}
+#+date: [`(format-time-string "%Y-%m-%d %a")`]
+
+$0
